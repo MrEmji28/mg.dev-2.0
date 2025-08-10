@@ -1,0 +1,1005 @@
+@media (max-width:760px) {
+    .nav ul {
+        z-index: 50;
+        backdrop-filter: blur(8px) saturate(1.05);
+    }
+}
+
+@media (max-width:760px) {
+    body.menu-open {
+        overflow: hidden;
+    }
+
+    .nav ul {
+        max-height: calc(100dvh - 56px);
+        overflow: auto;
+    }
+}
+
+@media (max-width: 760px) {
+    .hero {
+        padding: 28px 0 22px;
+    }
+
+    .hero .portrait {
+        min-height: 0;
+    }
+
+    .hero .portrait img {
+        width: min(360px, 75vw);
+        margin-inline: auto;
+    }
+
+    section {
+        padding: 48px 0;
+    }
+
+    .panel,
+    .card .body {
+        padding: 14px;
+    }
+}
+
+/* ——— Mobile header & nav ——— */
+.menu-toggle {
+    display: none;
+    background: transparent;
+    border: 0;
+    padding: 8px;
+    margin: -4px;
+}
+
+.menu-toggle span {
+    display: block;
+    width: 24px;
+    height: 2px;
+    margin: 5px 0;
+    background: var(--ink);
+    border-radius: 2px;
+    transition: transform .2s ease, opacity .2s ease;
+}
+
+@media (max-width: 760px) {
+    .container {
+        padding: 0 16px;
+    }
+
+    .nav {
+        height: 56px;
+    }
+
+    .brand span {
+        font-size: 1rem;
+        font-weight: 800;
+        white-space: nowrap;
+    }
+
+    /* keep name on one line */
+    .nav ul {
+        position: fixed;
+        left: 0;
+        right: 0;
+        top: 56px;
+        display: grid;
+        gap: 4px;
+        padding: 12px 16px;
+        background: color-mix(in srgb, var(--bg-2) 92%, transparent);
+        border-bottom: 1px solid var(--border);
+        transform: translateY(-120%);
+        transition: transform .25s ease;
+    }
+
+    .menu-toggle {
+        display: inline-block;
+    }
+
+    .nav.open ul {
+        transform: translateY(0);
+    }
+
+    /* toggle icon animation */
+    .nav.open .menu-toggle span:nth-child(1) {
+        transform: translateY(7px) rotate(45deg);
+    }
+
+    .nav.open .menu-toggle span:nth-child(2) {
+        opacity: 0;
+    }
+
+    .nav.open .menu-toggle span:nth-child(3) {
+        transform: translateY(-7px) rotate(-45deg);
+    }
+
+    /* hero sizing */
+    .chip {
+        font-size: .85rem;
+    }
+
+    .title {
+        font-size: clamp(1.9rem, 8vw, 2.6rem);
+        line-height: 1.1;
+    }
+
+    .subtitle {
+        font-size: .98rem;
+    }
+
+    .cta {
+        display: flex;
+        flex-direction: column;
+        /* keeps both buttons the same width and centered */
+        align-items: center;
+        gap: 12px;
+        max-width: 26rem;
+        margin-inline: auto;
+    }
+
+    .cta .btn {
+        width: clamp(12rem, 78vw, 18rem);
+        /* not too narrow, not too wide */
+        justify-content: center;
+    }
+
+    /* full-width buttons */
+}
+
+/* slightly wider phones */
+@media (max-width: 420px) {
+    .title {
+        font-size: clamp(1.8rem, 9vw, 2.4rem);
+    }
+}
+
+/* ===== Theme ===== */
+:root {
+    --bg: #0c0f14;
+    --bg-2: #0f141b;
+    --ink: #e8ecf1;
+    --muted: #9fb0c3;
+    --accent: #ff8a00;
+    /* soft orange */
+    --accent-2: #00c7ff;
+    /* cyan */
+    --card: rgba(255, 255, 255, .04);
+    --border: rgba(255, 255, 255, .12);
+    --radius: 18px;
+    --maxw: 1120px;
+    --shadow: 0 16px 40px rgba(0, 0, 0, .30);
+}
+
+@media (prefers-color-scheme: light) {
+    :root {
+        --bg: #f7f8fb;
+        --bg-2: #ffffff;
+        --ink: #0c1020;
+        --muted: #586578;
+        --card: rgba(0, 0, 0, .04);
+        --border: rgba(0, 0, 0, .12);
+        --shadow: 0 16px 40px rgba(0, 0, 0, .08);
+    }
+}
+
+* {
+    box-sizing: border-box
+}
+
+html,
+body {
+    height: 100%
+}
+
+body {
+    margin: 0;
+    font: 16px/1.6 "Inter", system-ui, -apple-system, Segoe UI, Roboto, Arial, sans-serif;
+    color: var(--ink);
+    background:
+        radial-gradient(1100px 520px at 110% -10%, rgba(0, 199, 255, .20), transparent 60%),
+        radial-gradient(900px 420px at -10% 0%, rgba(255, 138, 0, .18), transparent 60%),
+        linear-gradient(180deg, var(--bg), var(--bg-2));
+}
+
+a {
+    color: inherit;
+    text-decoration: none
+}
+
+img {
+    max-width: 100%;
+    display: block
+}
+
+.container {
+    width: 100%;
+    max-width: var(--maxw);
+    margin: 0 auto;
+    padding: 0 20px;
+    position: relative;
+    z-index: 1
+}
+
+.skip {
+    position: absolute;
+    left: -999px;
+    top: auto;
+    width: 1px;
+    height: 1px;
+    overflow: hidden
+}
+
+.skip:focus {
+    left: 16px;
+    top: 16px;
+    width: auto;
+    height: auto;
+    background: var(--bg-2);
+    padding: 10px 14px;
+    border-radius: 10px;
+    outline: 2px solid var(--accent)
+}
+
+/* ===== Header ===== */
+header {
+    position: sticky;
+    top: 0;
+    z-index: 10;
+    backdrop-filter: blur(8px) saturate(1.1);
+    background: color-mix(in srgb, var(--bg-2) 80%, transparent);
+    border-bottom: 1px solid var(--border);
+}
+
+.nav {
+    display: flex;
+    align-items: center;
+    justify-content: space-between;
+    height: 68px
+}
+
+.brand {
+    display: flex;
+    align-items: center;
+    gap: .7rem;
+    font-weight: 800;
+    letter-spacing: .3px
+}
+
+.mark {
+    width: 28px;
+    height: 28px;
+    border-radius: 8px;
+    background: conic-gradient(from 140deg, var(--accent), var(--accent-2), var(--accent));
+    box-shadow: 0 6px 14px rgba(255, 138, 0, .35);
+}
+
+.nav ul {
+    margin: 0;
+    padding: 0;
+    list-style: none;
+    display: flex;
+    gap: 14px
+}
+
+.nav a {
+    padding: 8px 12px;
+    border-radius: 10px;
+    color: var(--muted)
+}
+
+.nav a:hover,
+.nav a:focus-visible {
+    color: var(--ink);
+    background: var(--card);
+    outline: none
+}
+
+/* ===== Hero ===== */
+
+/* --- Portrait styles --- */
+/* --- Base portrait (removes the chunky frame) --- */
+.hero .portrait-wrap {
+    position: relative;
+    padding: 0;
+    /* no frame padding */
+    border-radius: 32px;
+    background: none;
+    box-shadow: none;
+    transform: none;
+    isolation: isolate;
+}
+
+.hero .portrait {
+    border: 0;
+    background: transparent;
+    border-radius: 0;
+    min-height: 420px;
+    /* keeps space even before image loads */
+    display: grid;
+    place-items: end;
+    position: relative;
+}
+
+.hero .portrait img {
+    width: min(420px, 44vw);
+    height: auto;
+    object-fit: contain;
+    object-position: 50% 100%;
+    display: block;
+    transform-origin: 50% 95%;
+    /* nice depth for transparent PNGs */
+    filter: drop-shadow(0 22px 36px rgba(0, 0, 0, .55)) saturate(1.04) contrast(1.03);
+
+    /* gentle float (turned off for reduced motion) */
+    animation: floatY 7s ease-in-out infinite;
+}
+
+.hero .caption {
+    margin-top: 10px;
+    color: var(--muted);
+    font-size: .95rem;
+    text-align: center;
+}
+
+@keyframes floatY {
+
+    0%,
+    100% {
+        transform: translateY(0)
+    }
+
+    50% {
+        transform: translateY(-8px)
+    }
+}
+
+@media (prefers-reduced-motion: reduce) {
+    .hero .portrait img {
+        animation: none
+    }
+}
+
+/* 1) Aurora blobs — soft gradient glow behind subject */
+.p-aurora::before {
+    content: "";
+    position: absolute;
+    inset: -10% -8% -14% -8%;
+    border-radius: 40px;
+    z-index: -1;
+    filter: blur(30px) saturate(1.1);
+    background:
+        radial-gradient(40% 35% at 20% 25%, color-mix(in srgb, var(--accent) 65%, transparent), transparent 60%),
+        radial-gradient(36% 40% at 80% 20%, color-mix(in srgb, var(--accent-2) 65%, transparent), transparent 60%),
+        radial-gradient(26% 30% at 50% 95%, rgba(124, 92, 255, .22), transparent 60%);
+}
+
+/* 2) Sticker outline — white silhouette + light neon glow */
+.p-sticker .portrait img {
+    filter:
+        drop-shadow(0 1px 0 #fff)
+        /* fake 3–4px white stroke */
+        drop-shadow(0 -1px 0 #fff) drop-shadow(1px 0 0 #fff) drop-shadow(-1px 0 0 #fff) drop-shadow(0 22px 36px rgba(0, 0, 0, .55))
+        /* depth */
+        drop-shadow(0 36px 70px color-mix(in srgb, var(--accent-2) 25%, transparent)) drop-shadow(0 48px 90px color-mix(in srgb, var(--accent) 22%, transparent));
+}
+
+/* 3) Minimal card — thin border & soft micro-pattern */
+.p-minimal {
+    padding: 18px;
+    border-radius: 22px;
+    background:
+        radial-gradient(120% 100% at 0% 0%, rgba(255, 255, 255, .04), transparent 60%),
+        linear-gradient(180deg, rgba(255, 255, 255, .02), rgba(255, 255, 255, 0));
+    border: 1px solid var(--border);
+    box-shadow: var(--shadow);
+}
+
+.p-minimal .portrait {
+    border-radius: 16px
+}
+
+.p-minimal .portrait::before {
+    /* subtle dotted grid */
+    content: "";
+    position: absolute;
+    inset: 0;
+    background:
+        radial-gradient(1px 1px at 10% 20%, rgba(255, 255, 255, .08) 0 1px, transparent 1px) 0 0/22px 22px,
+        radial-gradient(1px 1px at 50% 60%, rgba(255, 255, 255, .06) 0 1px, transparent 1px) 0 0/22px 22px;
+    opacity: .45;
+    pointer-events: none;
+}
+
+.hero {
+    display: grid;
+    gap: 28px;
+    align-items: center;
+    grid-template-columns: 1.05fr .95fr;
+    padding: clamp(46px, 8vw, 96px) 0 34px;
+    grid-template-areas: "copy art";
+}
+
+.hero>div {
+    grid-area: copy;
+}
+
+.hero>aside {
+    grid-area: art;
+}
+
+@media (max-width: 920px) {
+    .hero {
+        grid-template-columns: 1fr;
+        grid-template-areas:
+            "art"
+            "copy";
+        padding: 28px 0 22px;
+        /* your mobile padding */
+    }
+
+    .hero .portrait {
+        min-height: 0;
+        place-items: center;
+        /* centers image in its box */
+    }
+
+    .hero .portrait img {
+        width: min(340px, 70vw);
+        margin-inline: auto;
+    }
+}
+
+.chip {
+    display: inline-flex;
+    gap: 8px;
+    align-items: center;
+    padding: 6px 10px;
+    border-radius: 999px;
+    border: 1px solid var(--border);
+    background: var(--card);
+    color: var(--muted);
+    font-weight: 600;
+    font-size: .9rem;
+}
+
+.dot {
+    width: 8px;
+    height: 8px;
+    border-radius: 999px;
+    background: var(--accent);
+    box-shadow: 0 0 0 0 rgba(255, 138, 0, .55);
+    animation: pulse 2.2s infinite
+}
+
+@keyframes pulse {
+    to {
+        box-shadow: 0 0 0 16px rgba(255, 138, 0, 0)
+    }
+}
+
+.title {
+    font-size: clamp(2.2rem, 4.6vw, 3.9rem);
+    line-height: 1.08;
+    margin: 14px 0 10px;
+    letter-spacing: -.02em;
+    background: linear-gradient(90deg, var(--ink), color-mix(in srgb, var(--ink), var(--accent) 20%));
+    -webkit-background-clip: text;
+    background-clip: text;
+    color: transparent;
+}
+
+.subtitle {
+    color: var(--muted);
+    font-size: clamp(1rem, 1.2vw, 1.125rem);
+    max-width: 60ch
+}
+
+.cta {
+    display: flex;
+    gap: 12px;
+    flex-wrap: wrap;
+    margin-top: 22px
+}
+
+.btn {
+    display: inline-flex;
+    align-items: center;
+    gap: 10px;
+    font-weight: 700;
+    padding: 12px 16px;
+    border-radius: 12px;
+    border: 1px solid var(--border);
+    background: linear-gradient(135deg, rgba(255, 138, 0, .12), rgba(0, 199, 255, .10));
+    box-shadow: var(--shadow);
+    transform: translateZ(0);
+    transition: transform .2s ease, background .2s ease;
+}
+
+.btn:hover {
+    transform: translateY(-2px)
+}
+
+.btn.primary {
+    background: linear-gradient(135deg, var(--accent), var(--accent-2));
+    color: #081014;
+    border-color: transparent
+}
+
+.hero-card {
+    aspect-ratio: 1/1;
+    border-radius: 22px;
+    position: relative;
+    overflow: hidden;
+    background:
+        radial-gradient(120px 120px at 25% 25%, rgba(255, 255, 255, .16), transparent 60%),
+        linear-gradient(135deg, color-mix(in srgb, var(--accent) 55%, transparent), color-mix(in srgb, var(--accent-2) 55%, transparent));
+    border: 1px solid var(--border);
+    box-shadow: var(--shadow);
+    transform: perspective(1000px) rotateY(-6deg) rotateX(2deg);
+}
+
+.hero-pane {
+    position: absolute;
+    inset: 16px;
+    border-radius: 16px;
+    background: var(--bg-2);
+    border: 1px solid var(--border);
+    padding: 16px;
+    display: flex;
+    flex-direction: column;
+    gap: 10px;
+    font-family: "JetBrains Mono", ui-monospace, SFMono-Regular, Menlo, Consolas, monospace;
+    color: #cfe6ff;
+}
+
+.row {
+    display: flex;
+    gap: 10px;
+    align-items: center;
+    font-size: .95rem
+}
+
+.k {
+    color: #ffd399
+}
+
+.v {
+    color: #9ad7ff
+}
+
+.ok {
+    color: #9affc5
+}
+
+.t {
+    color: #7e96ac
+}
+
+/* ===== Sections ===== */
+section {
+    padding: 64px 0
+}
+
+.head {
+    display: flex;
+    align-items: flex-end;
+    justify-content: space-between;
+    gap: 16px;
+    margin-bottom: 20px
+}
+
+.h2 {
+    font-size: clamp(1.4rem, 2.2vw, 2rem)
+}
+
+.sub {
+    color: var(--muted)
+}
+
+.grid {
+    display: grid;
+    gap: 18px;
+    grid-template-columns: repeat(12, 1fr)
+}
+
+.col-4 {
+    grid-column: span 4
+}
+
+.col-6 {
+    grid-column: span 6
+}
+
+.col-12 {
+    grid-column: span 12
+}
+
+@media (max-width:920px) {
+
+    .col-4,
+    .col-6 {
+        grid-column: span 6
+    }
+}
+
+@media (max-width:640px) {
+
+    .col-4,
+    .col-6 {
+        grid-column: span 12
+    }
+}
+
+.card {
+    background: var(--card);
+    border: 1px solid var(--border);
+    border-radius: var(--radius);
+    overflow: hidden;
+    transition: transform .2s ease, border-color .2s ease, box-shadow .2s ease;
+}
+
+.card:hover {
+    transform: translateY(-6px);
+    border-color: color-mix(in srgb, var(--accent) 30%, var(--border))
+}
+
+.thumb {
+    aspect-ratio: 16/9;
+    background: #18202b;
+    overflow: hidden
+}
+
+.thumb img {
+    width: 100%;
+    height: 100%;
+    object-fit: cover
+}
+
+.body {
+    padding: 16px 16px 18px;
+    background:
+        radial-gradient(1100px 520px at 110% 130%, rgba(0, 199, 255, .20), transparent 60%),
+        radial-gradient(900px 420px at -10% 125%, rgba(255, 138, 0, .18), transparent 60%),
+        linear-gradient(180deg, var(--bg), var(--bg-2));
+}
+
+.body h3 {
+    margin: 4px 0 6px;
+    font-size: 1.08rem
+}
+
+.body p {
+    margin: 0;
+    color: var(--muted)
+}
+
+.tags {
+    display: flex;
+    gap: 8px;
+    flex-wrap: wrap;
+    margin-top: 12px
+}
+
+.tag {
+    font-size: .8rem;
+    padding: 6px 10px;
+    border-radius: 999px;
+    color: var(--muted);
+    background: rgba(255, 255, 255, .04);
+    border: 1px solid var(--border)
+}
+
+.actions {
+    margin-top: 14px;
+    display: flex;
+    gap: 10px;
+    flex-wrap: wrap
+}
+
+.mini {
+    font-size: .9rem;
+    padding: 8px 12px;
+    border-radius: 10px;
+    border: 1px solid var(--border);
+    background: transparent;
+    color: var(--ink)
+}
+
+.mini:hover {
+    background: var(--card)
+}
+
+/* ===== Skills / Experience ===== */
+.panel {
+    background: var(--card);
+    border: 1px solid var(--border);
+    border-radius: var(--radius);
+    padding: 18px
+}
+
+.bar {
+    height: 9px;
+    background: rgba(255, 255, 255, .04);
+    border: 1px solid var(--border);
+    border-radius: 999px;
+    overflow: hidden
+}
+
+.bar>span {
+    display: block;
+    height: 100%;
+    background: linear-gradient(90deg, var(--accent), var(--accent-2));
+    width: var(--w, 50%)
+}
+
+.timeline {
+    position: relative;
+    padding-left: 28px
+}
+
+.timeline::before {
+    content: "";
+    position: absolute;
+    left: 12px;
+    top: 4rem;
+    bottom: 4rem;
+    width: 2px;
+    background: var(--border);
+    border-radius: 2px;
+}
+
+.titem {
+    position: relative;
+    margin: 18px 0;
+    padding-left: 18px;
+}
+
+.titem::before {
+    content: "";
+    position: absolute;
+    left: 0;
+
+    top: .55em;
+
+    width: 10px;
+    height: 10px;
+    border-radius: 50%;
+    background: var(--accent);
+    box-shadow: 0 0 0 3px rgba(255, 138, 0, .15);
+
+}
+
+@media (max-width:640px) {
+    .timeline {
+        padding-left: 26px
+    }
+
+    .titem {
+        padding-left: 16px
+    }
+}
+
+/* ===== Contact ===== */
+.contact {
+    display: grid;
+    gap: 18px;
+    grid-template-columns: 1fr 1fr
+}
+
+@media (max-width:920px) {
+    .contact {
+        grid-template-columns: 1fr
+    }
+}
+
+form {
+    display: grid;
+    gap: 12px
+}
+
+input,
+textarea {
+    width: 100%;
+    padding: 12px 14px;
+    border-radius: 12px;
+    color: var(--ink);
+    border: 1px solid var(--border);
+    background: rgba(255, 255, 255, .04);
+    font: inherit
+}
+
+textarea {
+    min-height: 140px;
+    resize: vertical
+}
+
+input:focus-visible,
+textarea:focus-visible {
+    outline: 2px solid color-mix(in srgb, var(--accent) 50%, var(--border))
+}
+
+footer {
+    border-top: 1px solid var(--border);
+    color: var(--muted);
+    padding: 26px 0 46px;
+    margin-top: 16px
+}
+
+/* === Mobile nav override (put this at the very end) === */
+/* Mobile nav — fix ghost line + center hamburger */
+@media (max-width:760px) {
+    .menu-toggle {
+        display: inline-grid;
+        /* centers the bars */
+        place-items: center;
+        width: 40px;
+        height: 40px;
+        /* solid tap target */
+        margin: 0;
+        padding: 0;
+        /* remove the -4px hack */
+        line-height: 0;
+    }
+
+    .menu-toggle span {
+        width: 22px;
+        height: 2px;
+        background: var(--ink);
+        border-radius: 2px;
+        transition: transform .2s ease, opacity .2s ease;
+    }
+
+    .menu-toggle span+span {
+        margin-top: 5px;
+    }
+
+    /* hidden state: no border, not visible/interactive */
+    .nav ul {
+        position: fixed;
+        left: 0;
+        right: 0;
+        top: 56px;
+        display: grid;
+        gap: 4px;
+        padding: 12px 16px;
+        background: color-mix(in srgb, var(--bg-2) 92%, transparent);
+        max-height: calc(100dvh - 56px);
+        overflow: auto;
+        transform: translateY(-8px);
+        opacity: 0;
+        visibility: hidden;
+        pointer-events: none;
+        transition: transform .25s ease, opacity .25s ease, visibility 0s linear .25s;
+        z-index: 50;
+        backdrop-filter: blur(8px) saturate(1.05);
+        border: 0;
+        /* <-- moved out of hidden state */
+    }
+
+    /* open state: slide in and add the bottom border */
+    .nav.open ul {
+        transform: translateY(0);
+        opacity: 1;
+        visibility: visible;
+        pointer-events: auto;
+        transition: transform .25s ease, opacity .25s ease;
+        border-bottom: 1px solid var(--border);
+        /* no more ghost line */
+    }
+
+    /* hamburger X animation */
+    .nav.open .menu-toggle span:nth-child(1) {
+        transform: translateY(7px) rotate(45deg);
+    }
+
+    .nav.open .menu-toggle span:nth-child(2) {
+        opacity: 0;
+    }
+
+    .nav.open .menu-toggle span:nth-child(3) {
+        transform: translateY(-7px) rotate(-45deg);
+    }
+}
+
+/* Better readable width on all sizes */
+.title {
+    max-width: 26ch;
+    text-wrap: balance;
+}
+
+.subtitle {
+    max-width: 60ch;
+}
+
+/* Mobile tweaks */
+@media (max-width: 760px) {
+    .hero {
+        grid-template-columns: 1fr;
+        gap: 18px;
+        padding: 28px 0 24px;
+    }
+
+    /* keep text from spanning the full screen */
+    .hero>div {
+        max-width: 28rem;
+        /* ~448px */
+        margin-inline: auto;
+    }
+
+    .title {
+        font-size: clamp(1.6rem, 6.4vw, 2.1rem);
+        /* was 1.9–2.6rem */
+        line-height: 1.15;
+        letter-spacing: -0.01em;
+        max-width: 22ch;
+        /* short, comfy measure */
+        text-wrap: balance;
+    }
+
+    .subtitle {
+        font-size: 1rem;
+        max-width: 38ch;
+        /* narrower body copy */
+    }
+
+    .cta {
+        max-width: 28rem;
+        margin-inline: auto;
+        /* center the buttons */
+    }
+}
+
+/* Tighter hero + portrait on phones */
+@media (max-width:760px) {
+    .hero {
+        grid-template-columns: 1fr;
+        row-gap: 12px;
+        /* less space between text and image */
+        padding: 24px 0 16px;
+    }
+
+    /* kill the tall box + bottom anchor */
+    .hero .portrait {
+        min-height: 0 !important;
+        place-items: start;
+        /* or center; pick what you like */
+    }
+
+    /* reset default figure margins and size the image nicely */
+    .hero .portrait,
+    .hero .portrait-wrap,
+    .hero .portrait figure {
+        margin: 0;
+    }
+
+    .hero .portrait img {
+        width: min(320px, 82vw);
+        margin: 6px auto 0;
+        /* small, consistent gap */
+    }
+
+    /* optional: reduce the glow footprint a bit so it doesn't feel like empty space */
+    .p-aurora::before {
+        inset: -6% -6% -8% -6%;
+    }
+}
+
+/* Mobile: show the portrait first (under the nav) */
+@media (max-width: 920px) {
+    .hero {
+        grid-template-columns: 1fr;
+        grid-template-areas:
+            "art"
+            "copy";
+        padding: 28px 0 22px;
+        /* your mobile padding */
+    }
+
+    .hero .portrait {
+        min-height: 0;
+        place-items: center;
+        /* centers image in its box */
+    }
+
+    .hero .portrait img {
+        width: min(340px, 70vw);
+        margin-inline: auto;
+    }
+}
