@@ -3,374 +3,392 @@
 
 <head>
     <meta charset="utf-8" />
-    <meta name="viewport" content="width=device-width,initial-scale=1" />
+    <meta name="viewport" content="width=device-width, initial-scale=1" />
     <title>Marc Gene Crisolo — Software Engineer</title>
-    <meta name="description"
-        content="Portfolio of Marc Gene Crisolo — Software Engineer specializing in React, Node/Express, TypeScript, Odoo, and Laravel." />
+    <meta name="description" content="Clean, fast, and responsive portfolio for a software engineer." />
     <meta name="color-scheme" content="dark light" />
+    <link rel="preconnect" href="https://fonts.googleapis.com" />
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
     <link
         href="https://fonts.googleapis.com/css2?family=Inter:wght@400;600;800&family=JetBrains+Mono:wght@400;600&display=swap"
         rel="stylesheet" />
-    <link rel="stylesheet" href="style.css" />
-
+    <link rel="stylesheet" href="styles.css" />
 </head>
 
 <body>
-    <a class="skip" href="#main">Skip to content</a>
+    <a class="skip-link" href="#main">Skip to content</a>
 
-    <header>
-        <div class="container nav" role="navigation" aria-label="Main">
+    <header class="site-header" role="banner">
+        <div class="container nav">
             <a class="brand" href="#"><span class="mark" aria-hidden="true"></span><span>Marc Gene Crisolo</span></a>
 
-            <button class="menu-toggle" aria-expanded="false" aria-controls="site-menu" aria-label="Open menu">
-                <span></span><span></span><span></span>
+            <button class="nav-toggle" aria-expanded="false" aria-controls="site-menu" aria-label="Toggle menu">
+                <span class="bar"></span><span class="bar"></span><span class="bar"></span>
             </button>
-            <ul id="site-menu">
-                <li><a href="#work">Work</a></li>
-                <li><a href="#skills">Skills</a></li>
-                <li><a href="#experience">Experience</a></li>
-                <li><a href="#contact">Contact</a></li>
-                <li><a class="mini" href="Marc-Gene-Crisolo-Resume.pdf" target="_blank" rel="noopener">Resume</a></li>
-            </ul>
+
+            <nav id="site-menu" class="site-menu" role="navigation" aria-label="Main">
+                <ul>
+                    <li><a href="#projects" class="nav-link">Work</a></li>
+                    <li><a href="#skills" class="nav-link">Skills</a></li>
+                    <li><a href="#experience" class="nav-link">Experience</a></li>
+                    <li><a href="#contact" class="nav-link">Contact</a></li>
+                </ul>
+                <a class="btn outline small" href="assets/Resume.pdf" download>Resume</a>
+                <!-- old: <button id="theme-toggle" class="btn ghost" aria-label="Toggle theme">Theme</button> -->
+                <button id="theme-toggle" class="icon-btn" aria-label="Switch to dark mode" title="Toggle theme">
+                    <svg class="theme-icon" viewBox="0 0 24 24" width="22" height="22" aria-hidden="true">
+                        <!-- Sun -->
+                        <g class="sun">
+                            <circle cx="12" cy="12" r="4"></circle>
+                            <g class="rays">
+                                <line x1="12" y1="2" x2="12" y2="5"></line>
+                                <line x1="12" y1="19" x2="12" y2="22"></line>
+                                <line x1="2" y1="12" x2="5" y2="12"></line>
+                                <line x1="19" y1="12" x2="22" y2="12"></line>
+                                <line x1="4.22" y1="4.22" x2="6.34" y2="6.34"></line>
+                                <line x1="17.66" y1="17.66" x2="19.78" y2="19.78"></line>
+                                <line x1="4.22" y1="19.78" x2="6.34" y2="17.66"></line>
+                                <line x1="17.66" y1="6.34" x2="19.78" y2="4.22"></line>
+                            </g>
+                        </g>
+                        <!-- Moon -->
+                        <g class="moon">
+                            <path d="M21 12.8A9 9 0 1 1 11.2 3a7 7 0 0 0 9.8 9.8z"></path>
+                        </g>
+                    </svg>
+                </button>
+
+            </nav>
         </div>
     </header>
 
     <main id="main">
-        <!-- HERO -->
-        <section class="container hero" aria-label="Intro">
-            <div>
-                <span class="chip"><span class="dot" aria-hidden="true"></span> Open to interesting projects</span>
-                <h1 class="title">Quick to deploy, built to enjoy </h1>
-                <p class="subtitle">
-                    I’m Marc Gene Crisolo, a software engineer who builds clean, high-performance systems that are
-                    smooth, reliable, and always ready to deliver.
-                <div class="cta">
-                    <a class="btn primary" href="#work">See featured work</a>
-                    <a class="btn" href="#contact">Let’s collaborate</a>
-                </div>
-            </div>
+        <section class="hero hero-v2 section">
+            <div class="container hero-inner">
+                <div class="hero-content">
+                    <div class="badge">
+                        <span class="dot" aria-hidden="true"></span>
+                        Open to interesting projects
+                    </div>
 
-            <!-- Dev snapshot -->
-            <aside aria-label="Portrait of Marc Gene Crisolo">
-                <!--<div class="portrait-wrap p-aurora">-->
+                    <h1 class="headline">
+                        Quick to deploy,<br />
+                        built to enjoy
+                    </h1>
 
+                    <p class="lead">
+                        I'm Marc Gene Crisolo, a software engineer who builds clean, high-performance
+                        systems that are smooth, reliable, and always ready to deliver.
+                    </p>
 
-                <div class="portrait-wrap p-aurora">
-                    <div class="portrait-wrap p-sticker">
-                        <!-- <div class="portrait-wrap p-minimal">  -->
-                        <figure class="portrait">
-                            <img src="images/hero/marcgene.png" alt="Marc Gene Crisolo, arms crossed and smiling."
-                                width="420" height="525" />
-                        </figure>
-                        <!-- </div> -->
+                    <div class="actions">
+                        <a class="btn cta-gradient" href="#projects">See featured work</a>
+                        <a class="btn outline" href="#contact">Let's collaborate</a>
                     </div>
                 </div>
-                <!-- <div class="caption">Marc Gene Crisolo — Software Engineer</div> -->
-            </aside>
 
-        </section>
-
-        <!-- PROJECTS -->
-        <section id="work" class="container" aria-label="Selected projects" data-stagger=".card">
-            <div class="head">
-                <h2 class="h2">Featured Work</h2>
-                <p class="sub">Recent builds and integrations.</p>
-            </div>
-
-            <div class="grid">
-                <!-- Project 1 -->
-                <article class="card col-6">
-                    <div class="thumb">
-                        <img src="images/works/jayel1.png" alt="Analytics dashboard preview">
-                    </div>
-                    <div class="body">
-                        <h3>Jayel Smart Inventory and Sales System</h3>
-                        <p>A web application for managing orders and creating printable invoices for customers.</p>
-                        <div class="tags">
-                            <span class="tag">PHP</span><span class="tag">Laravel</span><span
-                                class="tag">Filament</span><span class="tag">PostgreSQL</span>
-                        </div>
-                        <div class="actions">
-                            <a class="mini" href="#" target="_blank" rel="noopener">Freelance</a>
-                            <a class="mini" href="#" target="_blank" rel="noopener">Inventory</a>
-                            <a class="mini" href="#" target="_blank" rel="noopener">Sales</a>
-                        </div>
-                    </div>
-                </article>
-
-                <!-- Project 2 -->
-                <article class="card col-6">
-                    <div class="thumb">
-                        <img src="images/works/jayel1.png" alt="Landing page preview">
-                    </div>
-                    <div class="body">
-                        <h3>Rondex Enterprises Corp. Inventory System</h3>
-                        <p>A web application for managing orders and creating printable invoices for customers.</p>
-                        <div class="tags">
-                            <span class="tag">PHP</span><span class="tag">Laravel</span><span
-                                class="tag">Filament</span><span class="tag">PostgreSQL</span>
-                        </div>
-                        <div class="actions">
-                            <a class="mini" href="#" target="_blank" rel="noopener">Freelance</a>
-                            <a class="mini" href="#" target="_blank" rel="noopener">Inventory</a>
-                        </div>
-                    </div>
-                </article>
-
-                <!-- Project 3 -->
-                <article class="card col-4">
-                    <div class="thumb">
-                        <img src="images/works/abcjobs.png" alt="Payments UI preview">
-                    </div>
-                    <div class="body">
-                        <h3>ABC Jobs Portal</h3>
-                        <p>A Job application Web Application with user registration, profile management, networking
-                            features for
-                            job seekers and employers, and an admin panel for efficient account management.</p>
-                        <div class="tags"><span class="tag">Java</span><span class="tag">Spring MVC</span></div>
-                        <div class="actions">
-                            <a class="mini" href="#" target="_blank" rel="noopener">Individual Project</a>
-                        </div>
-                    </div>
-                </article>
-
-                <!-- Project 4 -->
-                <article class="card col-4">
-                    <div class="thumb">
-                        <img src="images/works/jumpstart.png" alt="Dev blog preview">
-                    </div>
-                    <div class="body">
-                        <h3>JumpStart! E-Commerce Web Application</h3>
-                        <p>JumStart Online Retail is a Next.js e-commerce app for buying, selling, and managing products
-                            and orders online.
-                        </p>
-                        <br>
-                        <div class="tags"><span class="tag">NextJs</span><span class="tag">Firebase</span></div>
-                        <div class="actions">
-                            <a class="mini" href="#" target="_blank" rel="noopener">Capstone Project</a>
-                        </div>
-                    </div>
-                </article>
-
-                <!-- Project 5 -->
-                <article class="card col-4">
-                    <div class="thumb">
-                        <img src="images/works/merrymeals.png" alt="Components preview">
-                    </div>
-                    <div class="body">
-                        <h3>Meals On Wheels</h3>
-                        <p>A Web Application that lets seniors and persons with disabilities order curated meals online
-                            with real-time delivery tracking.
-
-                        </p>
-                        <br>
-                        <div class="tags"><span class="tag">ReactJS</span><span class="tag">Spring Boot</span></div>
-                        <div class="actions">
-                            <a class="mini" href="#" target="_blank" rel="noopener">Capstone Project</a>
-                        </div>
-                    </div>
-                </article>
+                <div class="hero-media">
+                    <img src="images/hero/marcgene.png" alt="Portrait illustration" />
+                </div>
             </div>
         </section>
 
-        <!-- SKILLS -->
-        <section id="skills" class="container" aria-label="Skills" data-stagger=".panel">
-            <div class="head">
-                <h2 class="h2">Skills & Tools</h2>
-                <p class="sub">What I build with, and how I work.</p>
-            </div>
-            <div class="grid">
-                <div class="panel col-6">
-                    <h3>Tech Stack</h3>
-                    <div class="tags" style="margin-top:10px">
-                        <span class="tag">ReactJs</span><span class="tag">NextJs</span>
-                        <span class="tag">Node/Express</span><span class="tag">Firebase</span><span
-                            class="tag">PostgreSQL</span>
-                        <span class="tag">Laravel</span><span class="tag">Filament</span><span class="tag">Odoo</span>
-                        <span class="tag">Tailwind/DaisyUI</span><span class="tag">Auth/JWT</span><span
-                            class="tag">Payments</span>
-                    </div>
-                    <ul class="sub" style="margin-top:10px">
-                        <li>Front-end: accessible, responsive UIs; component-driven dev</li>
-                        <li>Back-end: REST APIs, auth, integrations, webhooks</li>
-                        <li>Quality: testing, error handling, observability</li>
+        <section id="about" class="section glow">
+            <div class="container grid-2">
+                <div>
+                    <h2>About</h2>
+                    <p>I'm a software engineer focused on delightful user experiences and maintainable systems. I enjoy
+                        design systems, API integrations, and shipping features that matter.</p>
+                </div>
+                <div class="panel">
+                    <ul class="list-compact">
+                        <li><strong>Location:</strong> Valenzuela, Philippines</li>
+                        <li><strong>Experience:</strong> 3+ years</li>
+                        <li><strong>Interests:</strong> Software Development, Reading Books, Playing Chess</li>
+                        <li><strong>Currently:</strong> Building Softwares</li>
                     </ul>
                 </div>
+            </div>
+        </section>
 
-                <div class="panel col-6">
-                    <h3>Capability Bars</h3>
-                    <div style="display:grid; gap:12px">
-                        <div>
-                            <div>React / UI</div>
-                            <div class="bar"><span style="--w:92%"></span></div>
-                        </div>
-                        <div>
-                            <div>Node / Express</div>
-                            <div class="bar"><span style="--w:88%"></span></div>
-                        </div>
-                        <div>
-                            <div>Laravel / PHP</div>
-                            <div class="bar"><span style="--w:84%"></span></div>
-                        </div>
-                        <div>
-                            <div>Odoo / Python</div>
-                            <div class="bar"><span style="--w:80%"></span></div>
-                        </div>
-                        <div>
-                            <div>DB / SQL</div>
-                            <div class="bar"><span style="--w:86%"></span></div>
+        <section id="skills" class="section glow">
+            <div class="container">
+                <h2>Skills</h2>
+                <ul class="logo-cloud" aria-label="Skills and tools">
+                    <li><img src="https://cdn.simpleicons.org/react/fff?viewbox=auto" alt="React" title="React" /></li>
+                    <li><img src="https://cdn.simpleicons.org/nextdotjs/fff?viewbox=auto" alt="Next.js"
+                            title="Next.js" /></li>
+                    <li><img src="https://cdn.simpleicons.org/nodedotjs/fff?viewbox=auto" alt="Node.js"
+                            title="Node.js" /></li>
+                    <li><img src="https://cdn.simpleicons.org/express/fff?viewbox=auto" alt="Express" title="Express" />
+                    </li>
+                    <li><img src="https://cdn.simpleicons.org/postgresql/fff?viewbox=auto" alt="PostgreSQL"
+                            title="PostgreSQL" /></li>
+                    <li><img src="https://cdn.simpleicons.org/odoo/fff?viewbox=auto" alt="Odoo" title="Odoo" /></li>
+                    <li><img src="https://cdn.simpleicons.org/laravel/fff?viewbox=auto" alt="Laravel" title="Laravel" />
+                    </li>
+                    <li><img src="https://cdn.simpleicons.org/vite/fff?viewbox=auto" alt="Vite" title="Vite" /></li>
+                    <li><img src="https://cdn.simpleicons.org/tailwindcss/fff?viewbox=auto" alt="Tailwind CSS"
+                            title="Tailwind CSS" /></li>
+                    <li><img src="https://cdn.simpleicons.org/docker/fff?viewbox=auto" alt="Docker" title="Docker" />
+                    </li>
+                    <li><img src="https://cdn.simpleicons.org/git/fff?viewbox=auto" alt="Git" title="Git" /></li>
+
+                    <!-- Optional: Filament doesn’t have a Simple Icons entry.
+       You can use their wordmark from GitHub or keep your text chip as a fallback. -->
+                    <li class="logo-wordmark">
+                        <img src="https://raw.githubusercontent.com/filamentphp/filament/main/art/logo.svg"
+                            alt="Filament" title="Filament" />
+                    </li>
+                </ul>
+                <div class="skills-meters">
+                    <!-- Laravel -->
+                    <div class="meter" style="--val:85">
+                        <span class="meter-logo">
+                            <img src="https://cdn.simpleicons.org/laravel/fff?viewbox=auto" alt="" aria-hidden="true" />
+                        </span>
+                        <span class="label">Laravel</span>
+                        <span class="meter-val">85%</span>
+                        <div class="meter-track" role="progressbar" aria-valuemin="0" aria-valuemax="100"
+                            aria-valuenow="85" aria-label="Laravel proficiency">
+                            <div class="meter-fill"></div>
                         </div>
                     </div>
+
+                    <!-- Express -->
+                    <div class="meter" style="--val:80">
+                        <span class="meter-logo">
+                            <img src="https://cdn.simpleicons.org/express/fff?viewbox=auto" alt="" aria-hidden="true" />
+                        </span>
+                        <span class="label">Express</span>
+                        <span class="meter-val">80%</span>
+                        <div class="meter-track" role="progressbar" aria-valuemin="0" aria-valuemax="100"
+                            aria-valuenow="80" aria-label="Express proficiency">
+                            <div class="meter-fill"></div>
+                        </div>
+                    </div>
+
+                    <!-- React -->
+                    <div class="meter" style="--val:90">
+                        <span class="meter-logo">
+                            <img src="https://cdn.simpleicons.org/react/fff?viewbox=auto" alt="" aria-hidden="true" />
+                        </span>
+                        <span class="label">React</span>
+                        <span class="meter-val">90%</span>
+                        <div class="meter-track" role="progressbar" aria-valuemin="0" aria-valuemax="100"
+                            aria-valuenow="90" aria-label="React proficiency">
+                            <div class="meter-fill"></div>
+                        </div>
+                    </div>
+
+                    <!-- Next.js -->
+                    <div class="meter" style="--val:85">
+                        <span class="meter-logo">
+                            <img src="https://cdn.simpleicons.org/nextdotjs/fff?viewbox=auto" alt=""
+                                aria-hidden="true" />
+                        </span>
+                        <span class="label">Next.js</span>
+                        <span class="meter-val">85%</span>
+                        <div class="meter-track" role="progressbar" aria-valuemin="0" aria-valuemax="100"
+                            aria-valuenow="85" aria-label="Next.js proficiency">
+                            <div class="meter-fill"></div>
+                        </div>
+                    </div>
+
+                    <!-- PostgreSQL -->
+                    <div class="meter" style="--val:75">
+                        <span class="meter-logo">
+                            <img src="https://cdn.simpleicons.org/postgresql/fff?viewbox=auto" alt=""
+                                aria-hidden="true" />
+                        </span>
+                        <span class="label">PostgreSQL</span>
+                        <span class="meter-val">75%</span>
+                        <div class="meter-track" role="progressbar" aria-valuemin="0" aria-valuemax="100"
+                            aria-valuenow="75" aria-label="PostgreSQL proficiency">
+                            <div class="meter-fill"></div>
+                        </div>
+                    </div>
+                </div>
+
+
+            </div>
+        </section>
+
+        <section id="projects" class="section glow">
+            <div class="container">
+                <div class="section-head">
+                    <h2>Projects</h2>
+                    <a class="btn ghost" href="#" aria-label="See all projects">See all</a>
+                </div>
+
+                <div class="card-grid">
+                    <article class="card">
+                        <img class="card-media" src="images/works/jayel1.png" alt="Meals on Wheels preview" />
+                        <div class="card-body">
+                            <h3 class="card-title">Jayel Marketing Inventory and Sales Management System</h3>
+                            <p class="card-text">A web application for managing orders and creating printable invoices for customers.</p>
+                            <ul class="tags">
+                                <li>PHP</li>
+                                <li>Laravel</li>
+                                <li>Filament</li>
+                                <li>PostgreSQL</li>
+                            </ul>
+                            <div class="card-actions">
+                                <a class="btn small">Freelance</a>
+                                <a class="btn small ghost" >Inventory</a>
+                                <a class="btn small ghost" >Sales</a>
+                            </div>
+                        </div>
+                    </article>
+
+                    <article class="card">
+                        <img class="card-media" src="images/works/jumpstart.png" alt="JumStart Online Retail preview" />
+                        <div class="card-body">
+                            <h3 class="card-title">JumStart Online Retail</h3>
+                            <p class="card-text">E‑commerce with product management, payments, and admin tooling.</p>
+                            <ul class="tags">
+                                <li>Next.js</li>
+                                <li>Firebase</li>
+                                <li>MongoDB</li>
+                            </ul>
+                            <div class="card-actions">
+                                <a class="btn small" href="#">Capstone Project</a>
+                            </div>
+                        </div>
+                    </article>
+                    
+                    <article class="card">
+                        <img class="card-media" src="images/works/merrymeals.png" alt="Nostradome preview" />
+                        <div class="card-body">
+                            <h3 class="card-title">Meals on Wheels</h3>
+                            <p class="card-text">Accessible meal ordering for seniors/PWD with real-time delivery
+                                tracking.</p>
+                            <ul class="tags">
+                                <li>React</li>
+                                <li>Spring Boot</li>
+                                <li>MySQL</li>
+                            </ul>
+                            <div class="card-actions">
+                                <a class="btn small">Capstone Project</a>
+                            </div>
+                        </div>
+                    </article>
+
+                    <article class="card">
+                        <img class="card-media" src="images/works/abcjobs.png" alt="Jobs Hub preview" />
+                        <div class="card-body">
+                            <h3 class="card-title">Jobs Hub</h3>
+                            <p class="card-text">Job matching portal with profiles, admin controls, and secure auth.</p>
+                            <ul class="tags">
+                                <li>Tailwind</li>
+                                <li>Spring MVC</li>
+                            </ul>
+                            <div class="card-actions">
+                                <a class="btn small" href="#">School Project</a>
+                                
+                            </div>
+                        </div>
+                    </article>
+
                 </div>
             </div>
         </section>
 
-        <!-- EXPERIENCE -->
-        <section id="experience" class="container" aria-label="Experience" data-stagger=".item, .panel">
-            <div class="head">
-                <h2 class="h2">Experience</h2>
-                <p class="sub">Highlights from recent work.</p>
-            </div>
+      <section id="experience" class="section">
+  <div class="container">
+    <div class="section-head">
+      <h2>Experience</h2>
+      <p class="muted">Highlights from recent work.</p>
+    </div>
 
-            <div class="grid">
-                <div class="panel col-12">
-                    <div class="timeline">
-                        <div class="titem">
-                            <strong>Software Engineer — MoveForward Technologies</strong> · 2024–Present
-                            <div class="sub">Built production ReactJs apps and backend ERP modules. </div>
-                        </div>
-                        <div class="titem">
-                            <strong>Full-stack Web Developer — Freelance</strong> · 2022-Present
-                            <div class="sub">Developed Functional and Interactive Web Applications. </div>
-                        </div>
-                    </div>
+    <div class="xp-panel">
+      <ul class="xp-list">
+        <li class="xp-item">
+          <span class="xp-dot" aria-hidden="true"></span>
+          <div class="xp-body">
+            <h3 class="xp-role">
+              Software Engineer — MoveForward Technologies
+              <span class="xp-dates">· 2024–Present</span>
+            </h3>
+            <p class="xp-desc">
+              Built production ReactJS apps and backend ERP modules.
+            </p>
+          </div>
+        </li>
+
+        <li class="xp-item">
+          <span class="xp-dot" aria-hidden="true"></span>
+          <div class="xp-body">
+            <h3 class="xp-role">
+              Full-stack Web Developer — Freelance
+              <span class="xp-dates">· 2022–Present</span>
+            </h3>
+            <p class="xp-desc">
+              Developed functional and interactive web applications.
+            </p>
+          </div>
+        </li>
+      </ul>
+    </div>
+  </div>
+</section>
+
+
+        <section id="contact" class="section glow">
+            <div class="container grid-2">
+                <div>
+                    <h2>Contact</h2>
+                    <p>Want to collaborate or have a role in mind? I’d love to hear from you.</p>
+                    <a class="btn primary" href="mailto:hello@example.com">marcgenecrisolo@gmail.com</a>
                 </div>
-            </div>
-        </section>
-
-        <!-- CONTACT -->
-        <section id="contact" class="container" aria-label="Contact" data-stagger=".panel">
-            <div class="head">
-                <h2 class="h2">Let’s build something</h2>
-                <p class="sub">Tell me about your project, timeline, and goals.</p>
-            </div>
-
-            <div class="contact">
-                <div class="panel">
-                    <form action="mailto:hello@example.com" method="post" enctype="text/plain">
-                        <label><span>Name</span><input type="text" name="name" placeholder="Your name"
-                                required /></label>
-                        <label><span>Email</span><input type="email" name="email" placeholder="you@company.com"
-                                required /></label>
-                        <label><span>Message</span><textarea name="message" placeholder="What are we building?"
-                                required></textarea></label>
-                        <button class="btn primary" type="submit">Send Message</button>
-                    </form>
-                </div>
-
-                <div class="panel">
-                    <h3>Links</h3>
-                    <ul class="sub">
-                        <li>Email: <a href="mailto:hello@example.com">marcgenecrisolo@gmail.com</a></li>
-                        <li>GitHub: <a href="#" target="_blank" rel="noopener">@MrEmji28</a></li>
-                        <li>LinkedIn: <a href="#" target="_blank" rel="noopener">Marc Gene Crisolo</a></li>
-                        <li>Resume: <a href="Marc-Gene-Crisolo-Resume.pdf" target="_blank" rel="noopener">Download
-                                PDF</a></li>
-                    </ul>
-                    <div class="tags" style="margin-top:10px">
-                        <span class="tag">remote-friendly</span><span class="tag">freelance</span><span
-                            class="tag">long-term</span>
-                    </div>
-                </div>
+                <form class="panel contact-form"
+                    onsubmit="event.preventDefault(); alert('Thanks! This is a static demo.');">
+                    <label>
+                        <span class="label">Name</span>
+                        <input type="text" placeholder="Your name" required />
+                    </label>
+                    <label>
+                        <span class="label">Email</span>
+                        <input type="email" placeholder="you@example.com" required />
+                    </label>
+                    <label>
+                        <span class="label">Message</span>
+                        <textarea placeholder="How can I help?" rows="4" required></textarea>
+                    </label>
+                    <button class="btn primary" type="submit">Send</button>
+                    <p class="muted small">This form is a static demo. Wire it to your backend or Netlify Forms.</p>
+                </form>
             </div>
         </section>
     </main>
 
-    <footer>
-        <div class="container"
-            style="display:flex; align-items:center; justify-content:space-between; gap:16px; flex-wrap:wrap">
-            <small>© 2025 Marc Gene Crisolo</small>
-            <small>Built with semantic HTML & modern CSS.</small>
+    <footer class="site-footer">
+        <div class="container footer-inner">
+            <p class="muted">© <span id="year"></span> Marc Gene Crisolo. All rights reserved.</p>
+            <div class="socials" aria-label="Social links">
+                <a href="#" aria-label="GitHub" class="icon-link">
+                    <svg viewBox="0 0 24 24" aria-hidden="true">
+                        <path
+                            d="M12 .5a12 12 0 0 0-3.79 23.4c.6.11.82-.26.82-.58v-2.02c-3.34.73-4.04-1.61-4.04-1.61-.55-1.4-1.34-1.77-1.34-1.77-1.09-.74.08-.73.08-.73 1.2.09 1.84 1.24 1.84 1.24 1.07 1.83 2.8 1.3 3.49.99.11-.78.42-1.3.76-1.6-2.66-.3-5.46-1.33-5.46-5.92 0-1.31.47-2.38 1.24-3.22-.12-.3-.54-1.52.12-3.16 0 0 1.01-.32 3.3 1.23a11.5 11.5 0 0 1 6 0c2.29-1.55 3.3-1.23 3.3-1.23.66 1.64.24 2.86.12 3.16.77.84 1.24 1.91 1.24 3.22 0 4.6-2.81 5.61-5.49 5.91.43.38.81 1.12.81 2.26v3.35c0 .32.22.69.82.58A12 12 0 0 0 12 .5Z" />
+                    </svg>
+                </a>
+                <a href="#" aria-label="LinkedIn" class="icon-link">
+                    <svg viewBox="0 0 24 24" aria-hidden="true">
+                        <path
+                            d="M6.94 8.96V21H3.53V8.96h3.41ZM5.23 3a2 2 0 1 1 0 4 2 2 0 0 1 0-4Zm6.11 5.96c1.94 0 3.25 1.27 3.25 4.01V21h-3.41v-6.58c0-1.56-.56-2.62-1.96-2.62-1.07 0-1.71.72-1.99 1.42-.1.23-.12.55-.12.87V21H3.69s.05-10.73 0-11.85h3.41v1.68c.45-.7 1.25-1.7 3.04-1.7Z" />
+                    </svg>
+                </a>
+                <a href="#" aria-label="X (Twitter)" class="icon-link">
+                    <svg viewBox="0 0 24 24" aria-hidden="true">
+                        <path
+                            d="M18.244 2H21l-6.17 7.06L22 22h-6.8l-4.41-5.78L5.59 22H3l6.62-7.58L2 2h6.93l4 5.35L18.24 2Zm-2.38 18h2.18L8.22 3.99H5.94l9.93 16.01Z" />
+                    </svg>
+                </a>
+            </div>
         </div>
     </footer>
+
+    <script src="app.js"></script>
 </body>
-
-<script>
-    const nav = document.querySelector('header .nav');
-    const btn = document.querySelector('.menu-toggle');
-    const menu = document.getElementById('site-menu');
-
-    btn?.addEventListener('click', () => {
-        const open = nav.classList.toggle('open');
-        btn.setAttribute('aria-expanded', String(open));
-        document.body.classList.toggle('menu-open', open);
-    });
-
-    // Close on link click
-    menu?.addEventListener('click', (e) => {
-        if (e.target.tagName === 'A') {
-            nav.classList.remove('open');
-            btn.setAttribute('aria-expanded', 'false');
-            document.body.classList.remove('menu-open');
-        }
-    });
-
-    // Close on Esc
-    window.addEventListener('keydown', (e) => {
-        if (e.key === 'Escape' && nav.classList.contains('open')) {
-            nav.classList.remove('open');
-            btn.setAttribute('aria-expanded', 'false');
-            document.body.classList.remove('menu-open');
-        }
-    });
-
-    // Close if resized to desktop
-    matchMedia('(min-width: 761px)').addEventListener('change', (mq) => {
-        if (mq.matches) {
-            nav.classList.remove('open');
-            btn.setAttribute('aria-expanded', 'false');
-            document.body.classList.remove('menu-open');
-        }
-    });
-
-    // generic stagger + bg-on when done
-    document.querySelectorAll('[data-stagger]').forEach(section => {
-        const sel = section.dataset.stagger;
-        const items = [...section.querySelectorAll(sel)];
-        const reduce = matchMedia('(prefers-reduced-motion: reduce)').matches;
-
-        // initial state for staggered items (once)
-        items.forEach(el => {
-            el.style.opacity = 0;
-            el.style.transform = 'translateY(14px)';
-            el.style.transition = 'opacity .45s ease, transform .45s ease';
-        });
-
-        if (reduce || !items.length) {
-            section.classList.add('bg-on'); // respect reduced motion
-            items.forEach(el => { el.style.opacity = 1; el.style.transform = 'none'; });
-            return;
-        }
-
-        const io = new IntersectionObserver(([entry]) => {
-            if (!entry.isIntersecting) return;
-            items.forEach((el, i) => {
-                el.style.transitionDelay = `${i * 120}ms`;
-                requestAnimationFrame(() => { el.style.opacity = 1; el.style.transform = 'none'; });
-            });
-            io.disconnect();
-        }, { threshold: .2 });
-        io.observe(section);
-
-        let done = 0;
-        items.forEach(el => {
-            el.addEventListener('transitionend', e => {
-                if (e.propertyName !== 'opacity') return;
-                if (++done === items.length) section.classList.add('bg-on');
-            }, { once: true });
-        });
-    });
-
-</script>
 
 </html>
