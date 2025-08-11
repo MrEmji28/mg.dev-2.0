@@ -42,7 +42,8 @@
                 <span class="chip"><span class="dot" aria-hidden="true"></span> Open to interesting projects</span>
                 <h1 class="title">Quick to deploy, built to enjoy </h1>
                 <p class="subtitle">
-                    I’m Marc Gene Crisolo, a software engineer who builds clean, high-performance systems that are smooth, reliable, and always ready to deliver.
+                    I’m Marc Gene Crisolo, a software engineer who builds clean, high-performance systems that are
+                    smooth, reliable, and always ready to deliver.
                 <div class="cta">
                     <a class="btn primary" href="#work">See featured work</a>
                     <a class="btn" href="#contact">Let’s collaborate</a>
@@ -58,8 +59,8 @@
                     <div class="portrait-wrap p-sticker">
                         <!-- <div class="portrait-wrap p-minimal">  -->
                         <figure class="portrait">
-                            <img src="images/hero/marcgene.png" alt="Marc Gene Crisolo, arms crossed and smiling." width="420"
-                                height="525" />
+                            <img src="images/hero/marcgene.png" alt="Marc Gene Crisolo, arms crossed and smiling."
+                                width="420" height="525" />
                         </figure>
                         <!-- </div> -->
                     </div>
@@ -70,7 +71,7 @@
         </section>
 
         <!-- PROJECTS -->
-        <section id="work" class="container" aria-label="Selected projects">
+        <section id="work" class="container" aria-label="Selected projects" data-stagger=".card">
             <div class="head">
                 <h2 class="h2">Featured Work</h2>
                 <p class="sub">Recent builds and integrations.</p>
@@ -173,7 +174,7 @@
         </section>
 
         <!-- SKILLS -->
-        <section id="skills" class="container" aria-label="Skills">
+        <section id="skills" class="container" aria-label="Skills" data-stagger=".panel">
             <div class="head">
                 <h2 class="h2">Skills & Tools</h2>
                 <p class="sub">What I build with, and how I work.</p>
@@ -225,7 +226,7 @@
         </section>
 
         <!-- EXPERIENCE -->
-        <section id="experience" class="container" aria-label="Experience">
+        <section id="experience" class="container" aria-label="Experience" data-stagger=".item, .panel">
             <div class="head">
                 <h2 class="h2">Experience</h2>
                 <p class="sub">Highlights from recent work.</p>
@@ -248,7 +249,7 @@
         </section>
 
         <!-- CONTACT -->
-        <section id="contact" class="container" aria-label="Contact">
+        <section id="contact" class="container" aria-label="Contact" data-stagger=".panel">
             <div class="head">
                 <h2 class="h2">Let’s build something</h2>
                 <p class="sub">Tell me about your project, timeline, and goals.</p>
@@ -331,6 +332,45 @@
             document.body.classList.remove('menu-open');
         }
     });
+
+    // generic stagger + bg-on when done
+    document.querySelectorAll('[data-stagger]').forEach(section => {
+        const sel = section.dataset.stagger;
+        const items = [...section.querySelectorAll(sel)];
+        const reduce = matchMedia('(prefers-reduced-motion: reduce)').matches;
+
+        // initial state for staggered items (once)
+        items.forEach(el => {
+            el.style.opacity = 0;
+            el.style.transform = 'translateY(14px)';
+            el.style.transition = 'opacity .45s ease, transform .45s ease';
+        });
+
+        if (reduce || !items.length) {
+            section.classList.add('bg-on'); // respect reduced motion
+            items.forEach(el => { el.style.opacity = 1; el.style.transform = 'none'; });
+            return;
+        }
+
+        const io = new IntersectionObserver(([entry]) => {
+            if (!entry.isIntersecting) return;
+            items.forEach((el, i) => {
+                el.style.transitionDelay = `${i * 120}ms`;
+                requestAnimationFrame(() => { el.style.opacity = 1; el.style.transform = 'none'; });
+            });
+            io.disconnect();
+        }, { threshold: .2 });
+        io.observe(section);
+
+        let done = 0;
+        items.forEach(el => {
+            el.addEventListener('transitionend', e => {
+                if (e.propertyName !== 'opacity') return;
+                if (++done === items.length) section.classList.add('bg-on');
+            }, { once: true });
+        });
+    });
+
 </script>
 
 </html>
