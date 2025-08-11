@@ -625,18 +625,13 @@ section.bg-on::before { opacity: 1; }
 /* give it even more headroom on huge screens */
 @media (min-width: 1280px) {
     #work::before {
-        inset: -26% -12% -30% -12%;
+        inset: -34% -12% -32% -12%;
     }
 }
 
 
 #skills {
-    --overlap: 64px;
-    /* adjust if needed */
-    margin-top: calc(-1 * var(--overlap));
-    /* pull up a bit */
-    padding-top: calc(64px + var(--overlap));
-    /* keep visual spacing the same */
+    --overlap: 280px;  /* increased overlap to eliminate gap */
 }
 
 #experience {
@@ -657,15 +652,6 @@ section.bg-on::before { opacity: 1; }
 }
 
 /* — Work section: larger canvas + tighter top feather — */
-#work {
-  /* give the section extra space under the cards so the glow can fade */
-  padding-block: clamp(56px, 6vw, 88px) clamp(140px, 12vw, 240px);
-  --feather-top: 2%;          /* tighter top so no seam through the cards */
-  --feather-bottom: 10%;
-}
-#work::before {
-  inset: -22% -10% -28% -10%;  /* bigger canvas above & below the grid */
-}
 
 @media (max-width: 760px) {
     #work {
@@ -1100,3 +1086,19 @@ footer {
         margin-inline: auto;
     }
 }
+
+/* Fix seam/line overlapping Featured Work cards */
+#work {
+  --feather-top: 0%;
+  --feather-bottom: 14%;
+  padding-block: clamp(64px, 6vw, 96px) clamp(40px, 4vw, 60px);
+  padding-bottom: 20px;
+}
+
+#work::before {
+  inset: -40% -12% -42% -12%;
+  filter: blur(34px) saturate(1.05); /* stronger blur so no hard edge shows */
+}
+
+/* optional fallback */
+#work::before { -webkit-mask-image: none; mask-image: none; }
