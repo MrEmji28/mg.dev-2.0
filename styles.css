@@ -1112,3 +1112,9 @@ html[data-theme="light"] .section.glow {
     --glow2-top: -8%;
   }
 }
+
+/* Alternative: nudge the Projects glows down */
+#projects.glow {
+  --glow1-top: -8%;   /* was more negative */
+  --glow2-top: -10%;
+}
