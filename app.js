@@ -1,3 +1,42 @@
+// ===== Rocketship Opening Animation =====
+window.addEventListener('load', () => {
+  const loader = document.querySelector('.rocket-loader');
+  const body = document.body;
+  
+  // Initialize particles
+  particlesJS('particles-js', {
+    particles: {
+      number: { value: 80 },
+      color: { value: '#ff7a18' },
+      shape: { type: 'circle' },
+      opacity: { value: 0.5, random: true },
+      size: { value: 3, random: true },
+      move: {
+        enable: true,
+        speed: 6,
+        direction: 'top',
+        random: false,
+        straight: false,
+        out_mode: 'out'
+      }
+    },
+    interactivity: { detect_on: 'canvas', events: { onhover: { enable: false }, onclick: { enable: false } } },
+    retina_detect: true
+  });
+  
+  // Animate rocket
+  const rocket = document.querySelector('.rocket');
+  rocket.style.animation = 'rocketUp 2.5s ease-out forwards';
+  
+  // Remove loading class after animation completes
+  setTimeout(() => {
+    body.classList.remove('loading');
+    if (loader) {
+      loader.remove();
+    }
+  }, 3300);
+});
+
 // ===== Mobile menu (burger) =====
 const navToggle = document.querySelector('.nav-toggle');
 const siteMenu  = document.getElementById('site-menu');

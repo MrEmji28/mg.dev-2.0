@@ -13,9 +13,19 @@
         href="https://fonts.googleapis.com/css2?family=Inter:wght@400;600;800&family=JetBrains+Mono:wght@400;600&display=swap"
         rel="stylesheet" />
     <link rel="stylesheet" href="styles.css" />
+    <script src="https://cdn.jsdelivr.net/particles.js/2.0.0/particles.min.js"></script>
 </head>
 
-<body>
+<body class="loading">
+    <!-- Rocketship Opening Animation -->
+    <div class="rocket-loader">
+        <div id="particles-js"></div>
+        <div class="launch-message">LAUNCHING PORTFOLIO...</div>
+        <div class="rocket">
+            <div style="font-size: 6rem; transform: rotate(-45deg);">🚀</div>
+        </div>
+    </div>
+
     <a class="skip-link" href="#main">Skip to content</a>
 
     <header class="site-header" role="banner">
@@ -113,105 +123,166 @@
 
         <section id="skills" class="section glow">
             <div class="container">
-                <h2>Skills</h2>
-                <ul class="logo-cloud" aria-label="Skills and tools">
-                    <li><img src="https://cdn.simpleicons.org/react/fff?viewbox=auto" alt="React" title="React" /></li>
-                    <li><img src="https://cdn.simpleicons.org/nextdotjs/fff?viewbox=auto" alt="Next.js"
-                            title="Next.js" /></li>
-                    <li><img src="https://cdn.simpleicons.org/nodedotjs/fff?viewbox=auto" alt="Node.js"
-                            title="Node.js" /></li>
-                    <li><img src="https://cdn.simpleicons.org/express/fff?viewbox=auto" alt="Express" title="Express" />
-                    </li>
-                    <li><img src="https://cdn.simpleicons.org/postgresql/fff?viewbox=auto" alt="PostgreSQL"
-                            title="PostgreSQL" /></li>
-                    <li><img src="https://cdn.simpleicons.org/odoo/fff?viewbox=auto" alt="Odoo" title="Odoo" /></li>
-                    <li><img src="https://cdn.simpleicons.org/laravel/fff?viewbox=auto" alt="Laravel" title="Laravel" />
-                    </li>
-                    <li><img src="https://cdn.simpleicons.org/vite/fff?viewbox=auto" alt="Vite" title="Vite" /></li>
-                    <li><img src="https://cdn.simpleicons.org/tailwindcss/fff?viewbox=auto" alt="Tailwind CSS"
-                            title="Tailwind CSS" /></li>
-                    <li><img src="https://cdn.simpleicons.org/docker/fff?viewbox=auto" alt="Docker" title="Docker" />
-                    </li>
-                    <li><img src="https://cdn.simpleicons.org/git/fff?viewbox=auto" alt="Git" title="Git" /></li>
-
-                    <!-- Optional: Filament doesn’t have a Simple Icons entry.
-       You can use their wordmark from GitHub or keep your text chip as a fallback. -->
-                    <li class="logo-wordmark">
-                        <img src="https://raw.githubusercontent.com/filamentphp/filament/main/art/logo.svg"
-                            alt="Filament" title="Filament" />
-                    </li>
-                </ul>
-                <div class="skills-meters">
-                    <!-- Laravel -->
-                    <div class="meter" style="--val:85">
-                        <span class="meter-logo">
-                            <img src="https://cdn.simpleicons.org/laravel/fff?viewbox=auto" alt="" aria-hidden="true" />
-                        </span>
-                        <span class="label">Laravel</span>
-                        <span class="meter-val">85%</span>
-                        <div class="meter-track" role="progressbar" aria-valuemin="0" aria-valuemax="100"
-                            aria-valuenow="85" aria-label="Laravel proficiency">
-                            <div class="meter-fill"></div>
-                        </div>
-                    </div>
-
-                    <!-- Express -->
-                    <div class="meter" style="--val:80">
-                        <span class="meter-logo">
-                            <img src="https://cdn.simpleicons.org/express/fff?viewbox=auto" alt="" aria-hidden="true" />
-                        </span>
-                        <span class="label">Express</span>
-                        <span class="meter-val">80%</span>
-                        <div class="meter-track" role="progressbar" aria-valuemin="0" aria-valuemax="100"
-                            aria-valuenow="80" aria-label="Express proficiency">
-                            <div class="meter-fill"></div>
-                        </div>
-                    </div>
-
-                    <!-- React -->
-                    <div class="meter" style="--val:90">
-                        <span class="meter-logo">
-                            <img src="https://cdn.simpleicons.org/react/fff?viewbox=auto" alt="" aria-hidden="true" />
-                        </span>
-                        <span class="label">React</span>
-                        <span class="meter-val">90%</span>
-                        <div class="meter-track" role="progressbar" aria-valuemin="0" aria-valuemax="100"
-                            aria-valuenow="90" aria-label="React proficiency">
-                            <div class="meter-fill"></div>
-                        </div>
-                    </div>
-
-                    <!-- Next.js -->
-                    <div class="meter" style="--val:85">
-                        <span class="meter-logo">
-                            <img src="https://cdn.simpleicons.org/nextdotjs/fff?viewbox=auto" alt=""
-                                aria-hidden="true" />
-                        </span>
-                        <span class="label">Next.js</span>
-                        <span class="meter-val">85%</span>
-                        <div class="meter-track" role="progressbar" aria-valuemin="0" aria-valuemax="100"
-                            aria-valuenow="85" aria-label="Next.js proficiency">
-                            <div class="meter-fill"></div>
-                        </div>
-                    </div>
-
-                    <!-- PostgreSQL -->
-                    <div class="meter" style="--val:75">
-                        <span class="meter-logo">
-                            <img src="https://cdn.simpleicons.org/postgresql/fff?viewbox=auto" alt=""
-                                aria-hidden="true" />
-                        </span>
-                        <span class="label">PostgreSQL</span>
-                        <span class="meter-val">75%</span>
-                        <div class="meter-track" role="progressbar" aria-valuemin="0" aria-valuemax="100"
-                            aria-valuenow="75" aria-label="PostgreSQL proficiency">
-                            <div class="meter-fill"></div>
-                        </div>
-                    </div>
+                <div class="section-head">
+                    <h2>Skills & Technologies</h2>
+                    <p class="muted">Technologies I work with to build modern applications</p>
                 </div>
+                <!-- Skill Categories -->
+                <div class="skills-categories">
+                    <div class="skill-category">
+                        <h3 class="category-title">Frontend</h3>
+                        <ul class="logo-cloud" aria-label="Frontend technologies">
+                            <li><img src="https://cdn.simpleicons.org/react/fff?viewbox=auto" alt="React"
+                                    title="React" /></li>
+                            <li><img src="https://cdn.simpleicons.org/nextdotjs/fff?viewbox=auto" alt="Next.js"
+                                    title="Next.js" /></li>
+                            <li><img src="https://cdn.simpleicons.org/javascript/fff?viewbox=auto" alt="JavaScript"
+                                    title="JavaScript" /></li>
+                            <li><img src="https://cdn.simpleicons.org/typescript/fff?viewbox=auto" alt="TypeScript"
+                                    title="TypeScript" /></li>
+                            <li><img src="https://cdn.simpleicons.org/tailwindcss/fff?viewbox=auto" alt="Tailwind CSS"
+                                    title="Tailwind CSS" /></li>
+                            <li><img src="https://cdn.simpleicons.org/html5/fff?viewbox=auto" alt="HTML5"
+                                    title="HTML5" /></li>
+                            <li><img src="https://cdn.simpleicons.org/css/fff?viewbox=auto" alt="CSS3" title="CSS3" />
+                            </li>
+                            <li><img src="https://cdn.simpleicons.org/webpack/fff?viewbox=auto" alt="Webpack"
+                                    title="Webpack" /></li>
+                        </ul>
+                    </div>
+                    <br>
+
+                    <div class="skill-category">
+                        <h3 class="category-title">Backend</h3>
+                        <ul class="logo-cloud" aria-label="Backend technologies">
+                            <li><img src="https://cdn.simpleicons.org/nodedotjs/fff?viewbox=auto" alt="Node.js"
+                                    title="Node.js" /></li>
+                            <li><img src="https://cdn.simpleicons.org/express/fff?viewbox=auto" alt="Express"
+                                    title="Express" /></li>
+                            <li><img src="https://cdn.simpleicons.org/laravel/fff?viewbox=auto" alt="Laravel"
+                                    title="Laravel" /></li>
+                            <li><img src="https://cdn.simpleicons.org/php/fff?viewbox=auto" alt="PHP" title="PHP" />
+                            </li>
+                            <li><img src="https://cdn.simpleicons.org/springboot/fff?viewbox=auto" alt="Spring Boot"
+                                    title="Spring Boot" /></li>
+                            <li><img src="https://cdn.simpleicons.org/python/fff?viewbox=auto" alt="Python"
+                                    title="Python" /></li>
+                            <li><img src="https://cdn.simpleicons.org/composer/fff?viewbox=auto" alt="Composer"
+                                    title="Composer" /></li>
+                        </ul>
+                    </div>
+                    <br>
+
+                    <div class="skill-category">
+                        <h3 class="category-title">Database & Tools</h3>
+                        <ul class="logo-cloud" aria-label="Database and development tools">
+                            <li><img src="https://cdn.simpleicons.org/postgresql/fff?viewbox=auto" alt="PostgreSQL"
+                                    title="PostgreSQL" /></li>
+                            <li><img src="https://cdn.simpleicons.org/mysql/fff?viewbox=auto" alt="MySQL"
+                                    title="MySQL" /></li>
+                            <li><img src="https://cdn.simpleicons.org/mongodb/fff?viewbox=auto" alt="MongoDB"
+                                    title="MongoDB" /></li>
+                            <li><img src="https://cdn.simpleicons.org/firebase/fff?viewbox=auto" alt="Firebase"
+                                    title="Firebase" /></li>
+                            <li><img src="https://cdn.simpleicons.org/github/fff?viewbox=auto" alt="GitHub"
+                                    title="GitHub" /></li>
+                            <!--<li><img src="https://cdn.simpleicons.org/odoo/fff?viewbox=auto" alt="Odoo" title="Odoo" />
+                            </li>-->
+                            <li><img src="https://cdn.simpleicons.org/docker/fff?viewbox=auto" alt="Docker"
+                                    title="Docker" /></li>
+                            <li><img src="https://cdn.simpleicons.org/git/fff?viewbox=auto" alt="Git" title="Git" />
+                            </li>
+
+                            <!-- Optional: Filament doesn’t have a Simple Icons entry.
+       You can use their wordmark from GitHub or keep your text chip as a fallback. -->
+
+                        </ul>
+                        <br>
+                        <h3 class="section-subtitle">Core Expertise</h3>
+                        <div class="skills-meters">
+                            <div class="meter" style="--val:95">
+                                <span class="meter-logo">
+                                    <img src="https://cdn.simpleicons.org/react/fff?viewbox=auto" alt=""
+                                        aria-hidden="true" />
+                                </span>
+                                <span class="label">React</span>
+                                <span class="meter-val">95%</span>
+                                <div class="meter-track" role="progressbar" aria-valuemin="0" aria-valuemax="100"
+                                    aria-valuenow="90" aria-label="React proficiency">
+                                    <div class="meter-fill"></div>
+                                </div>
+                            </div>
+
+                            <div class="meter" style="--val:98">
+                                <span class="meter-logo">
+                                    <img src="https://cdn.simpleicons.org/javascript/fff?viewbox=auto" alt=""
+                                        aria-hidden="true" />
+                                </span>
+                                <span class="label">JavaScript</span>
+                                <span class="meter-val">98%</span>
+                                <div class="meter-track" role="progressbar" aria-valuemin="0" aria-valuemax="100"
+                                    aria-valuenow="88" aria-label="JavaScript proficiency">
+                                    <div class="meter-fill"></div>
+                                </div>
+                            </div>
+
+                            <div class="meter" style="--val:98">
+                                <span class="meter-logo">
+                                    <img src="https://cdn.simpleicons.org/laravel/fff?viewbox=auto" alt=""
+                                        aria-hidden="true" />
+                                </span>
+                                <span class="label">Laravel</span>
+                                <span class="meter-val">98%</span>
+                                <div class="meter-track" role="progressbar" aria-valuemin="0" aria-valuemax="100"
+                                    aria-valuenow="85" aria-label="Laravel proficiency">
+                                    <div class="meter-fill"></div>
+                                </div>
+                            </div>
+
+                            <div class="meter" style="--val:95">
+                                <span class="meter-logo">
+                                    <img src="https://cdn.simpleicons.org/nextdotjs/fff?viewbox=auto" alt=""
+                                        aria-hidden="true" />
+                                </span>
+                                <span class="label">Next.js</span>
+                                <span class="meter-val">95%</span>
+                                <div class="meter-track" role="progressbar" aria-valuemin="0" aria-valuemax="100"
+                                    aria-valuenow="85" aria-label="Next.js proficiency">
+                                    <div class="meter-fill"></div>
+                                </div>
+                            </div>
+
+                            <div class="meter" style="--val:95">
+                                <span class="meter-logo">
+                                    <img src="https://cdn.simpleicons.org/express/fff?viewbox=auto" alt=""
+                                        aria-hidden="true" />
+                                </span>
+                                <span class="label">Express</span>
+                                <span class="meter-val">95%</span>
+                                <div class="meter-track" role="progressbar" aria-valuemin="0" aria-valuemax="100"
+                                    aria-valuenow="80" aria-label="Express proficiency">
+                                    <div class="meter-fill"></div>
+                                </div>
+                            </div>
+
+                            <div class="meter" style="--val:95">
+                                <span class="meter-logo">
+                                    <img src="https://cdn.simpleicons.org/postgresql/fff?viewbox=auto" alt=""
+                                        aria-hidden="true" />
+                                </span>
+                                <span class="label">PostgreSQL</span>
+                                <span class="meter-val">95%</span>
+                                <div class="meter-track" role="progressbar" aria-valuemin="0" aria-valuemax="100"
+                                    aria-valuenow="75" aria-label="PostgreSQL proficiency">
+                                    <div class="meter-fill"></div>
+                                </div>
+                            </div>
+                        </div>
 
 
-            </div>
+
+
+                    </div>
         </section>
 
         <section id="projects" class="section glow">
@@ -223,10 +294,11 @@
 
                 <div class="card-grid">
                     <article class="card">
-                        <img class="card-media" src="images/works/jayel1.png" alt="Meals on Wheels preview" />
+                        <img class="card-media" src="images/works/jayel_inventory/1.png" alt="Meals on Wheels preview" />
                         <div class="card-body">
                             <h3 class="card-title">Jayel Marketing Inventory and Sales Management System</h3>
-                            <p class="card-text">A web application for managing orders and creating printable invoices for customers.</p>
+                            <p class="card-text">A web application for managing orders and creating printable invoices
+                                for customers.</p>
                             <ul class="tags">
                                 <li>PHP</li>
                                 <li>Laravel</li>
@@ -235,8 +307,8 @@
                             </ul>
                             <div class="card-actions">
                                 <a class="btn small">Freelance</a>
-                                <a class="btn small ghost" >Inventory</a>
-                                <a class="btn small ghost" >Sales</a>
+                                <a class="btn small ghost">Inventory</a>
+                                <a class="btn small ghost">Sales</a>
                             </div>
                         </div>
                     </article>
@@ -256,7 +328,7 @@
                             </div>
                         </div>
                     </article>
-                    
+
                     <article class="card">
                         <img class="card-media" src="images/works/merrymeals.png" alt="Nostradome preview" />
                         <div class="card-body">
@@ -285,7 +357,7 @@
                             </ul>
                             <div class="card-actions">
                                 <a class="btn small" href="#">School Project</a>
-                                
+
                             </div>
                         </div>
                     </article>
@@ -294,44 +366,44 @@
             </div>
         </section>
 
-      <section id="experience" class="section">
-  <div class="container">
-    <div class="section-head">
-      <h2>Experience</h2>
-      <p class="muted">Highlights from recent work.</p>
-    </div>
+        <section id="experience" class="section">
+            <div class="container">
+                <div class="section-head">
+                    <h2>Experience</h2>
+                    <p class="muted">Highlights from recent work.</p>
+                </div>
 
-    <div class="xp-panel">
-      <ul class="xp-list">
-        <li class="xp-item">
-          <span class="xp-dot" aria-hidden="true"></span>
-          <div class="xp-body">
-            <h3 class="xp-role">
-              Software Engineer — MoveForward Technologies
-              <span class="xp-dates">· 2024–Present</span>
-            </h3>
-            <p class="xp-desc">
-              Built production ReactJS apps and backend ERP modules.
-            </p>
-          </div>
-        </li>
+                <div class="xp-panel">
+                    <ul class="xp-list">
+                        <li class="xp-item">
+                            <span class="xp-dot" aria-hidden="true"></span>
+                            <div class="xp-body">
+                                <h3 class="xp-role">
+                                    Software Engineer — MoveForward Technologies
+                                    <span class="xp-dates">· 2024–Present</span>
+                                </h3>
+                                <p class="xp-desc">
+                                    Built production ReactJS apps and backend ERP modules.
+                                </p>
+                            </div>
+                        </li>
 
-        <li class="xp-item">
-          <span class="xp-dot" aria-hidden="true"></span>
-          <div class="xp-body">
-            <h3 class="xp-role">
-              Full-stack Web Developer — Freelance
-              <span class="xp-dates">· 2022–Present</span>
-            </h3>
-            <p class="xp-desc">
-              Developed functional and interactive web applications.
-            </p>
-          </div>
-        </li>
-      </ul>
-    </div>
-  </div>
-</section>
+                        <li class="xp-item">
+                            <span class="xp-dot" aria-hidden="true"></span>
+                            <div class="xp-body">
+                                <h3 class="xp-role">
+                                    Full-stack Web Developer — Freelance
+                                    <span class="xp-dates">· 2022–Present</span>
+                                </h3>
+                                <p class="xp-desc">
+                                    Developed functional and interactive web applications.
+                                </p>
+                            </div>
+                        </li>
+                    </ul>
+                </div>
+            </div>
+        </section>
 
 
         <section id="contact" class="section glow">
@@ -389,6 +461,16 @@
     </footer>
 
     <script src="app.js"></script>
+    <script>
+        // Animate progress bars
+        document.querySelectorAll('.meter').forEach(meter => {
+            const fill = meter.querySelector('.meter-fill');
+            const val = meter.style.getPropertyValue('--val');
+            if (fill && val) {
+                fill.style.width = val + '%';
+            }
+        });
+    </script>
 </body>
 
 </html>
