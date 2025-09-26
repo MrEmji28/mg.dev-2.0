@@ -631,6 +631,8 @@ html[data-theme="dark"] .theme-icon .moon {
   aspect-ratio: 16 / 9;
   object-fit: cover;
   background: #16161a;
+  width: 100%;
+  display: block;
 }
 
 .card-body {
@@ -1156,6 +1158,243 @@ html[data-theme="dark"] .theme-icon .moon {
   .xp-dot   { width: 12px; height: 12px; }
   .section-head { align-items: center; gap: 10px; }
   #experience .section-head p { font-size: .95rem; }
+}
+
+/* ===== Project Card Hover Icons ===== */
+.card-media-wrapper {
+  position: relative;
+  overflow: hidden;
+}
+
+.card-hover-overlay {
+  position: absolute;
+  inset: 0;
+  background: linear-gradient(135deg, rgba(0, 0, 0, 0.8), rgba(17, 17, 20, 0.9));
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  opacity: 0;
+  transition: opacity 0.3s ease;
+}
+
+.card:hover .card-hover-overlay {
+  opacity: 1;
+}
+
+.hover-icons {
+  display: flex;
+  gap: 16px;
+}
+
+.hover-icon-btn {
+  width: 48px;
+  height: 48px;
+  background: rgba(255, 255, 255, 0.2);
+  border: 2px solid rgba(255, 255, 255, 0.3);
+  border-radius: 50%;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  transition: all 0.3s ease;
+  backdrop-filter: blur(10px);
+}
+
+.hover-icon-btn:hover {
+  transform: translateY(-4px) scale(1.1);
+  background: rgba(255, 255, 255, 0.3);
+  border-color: rgba(255, 255, 255, 0.5);
+}
+
+.hover-icon-btn svg {
+  stroke: white;
+  fill: none;
+  stroke-width: 2;
+  stroke-linecap: round;
+  stroke-linejoin: round;
+  transition: transform 0.3s ease;
+}
+
+.hover-icon-btn:hover svg {
+  transform: scale(1.1);
+}
+
+.hover-icon-btn i {
+  font-size: 20px;
+  color: white;
+}
+
+/* ===== Project Modal ===== */
+.modal {
+  display: none;
+  position: fixed;
+  z-index: 1000;
+  left: 0;
+  top: 0;
+  width: 100%;
+  height: 100%;
+  background-color: rgba(0, 0, 0, 0.8);
+  backdrop-filter: blur(5px);
+}
+
+.modal-content {
+  background: var(--panel);
+  margin: 2% auto;
+  padding: 0;
+  border: 1px solid var(--border);
+  border-radius: var(--radius);
+  width: 90%;
+  max-width: 800px;
+  max-height: 90vh;
+  overflow-y: auto;
+  position: relative;
+}
+
+.modal-close {
+  position: absolute;
+  right: 20px;
+  top: 20px;
+  font-size: 28px;
+  font-weight: bold;
+  cursor: pointer;
+  z-index: 1001;
+  color: var(--text);
+  background: var(--panel);
+  border-radius: 50%;
+  width: 40px;
+  height: 40px;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+}
+
+.modal-carousel {
+  position: relative;
+  width: 100%;
+  height: 300px;
+  border-radius: var(--radius) var(--radius) 0 0;
+  overflow: hidden;
+}
+
+.carousel-container {
+  position: relative;
+  width: 100%;
+  height: 100%;
+}
+
+.carousel-images {
+  display: flex;
+  width: 100%;
+  height: 100%;
+  transition: transform 0.3s ease;
+}
+
+.carousel-images img {
+  width: 100%;
+  height: 100%;
+  object-fit: contain;
+  flex-shrink: 0;
+}
+
+.carousel-btn {
+  position: absolute;
+  top: 50%;
+  transform: translateY(-50%);
+  background: rgba(0, 0, 0, 0.7);
+  color: white;
+  border: none;
+  width: 40px;
+  height: 40px;
+  border-radius: 50%;
+  cursor: pointer;
+  font-size: 18px;
+  z-index: 10;
+}
+
+.carousel-btn:hover {
+  background: rgba(0, 0, 0, 0.9);
+}
+
+.carousel-btn.prev {
+  left: 10px;
+}
+
+.carousel-btn.next {
+  right: 10px;
+}
+
+.carousel-dots {
+  display: flex;
+  justify-content: center;
+  gap: 8px;
+  padding: 12px;
+  background: var(--panel);
+}
+
+.carousel-dot {
+  width: 10px;
+  height: 10px;
+  border-radius: 50%;
+  background: var(--border);
+  cursor: pointer;
+  transition: background 0.3s ease;
+}
+
+.carousel-dot.active {
+  background: var(--accent);
+}
+
+.modal-body {
+  padding: 24px;
+  padding-top: 0;
+}
+
+.modal-body h2 {
+  margin-bottom: 16px;
+}
+
+.modal-features ul {
+  list-style: none;
+  padding: 0;
+  margin: 12px 0;
+}
+
+.modal-features li {
+  padding: 8px 0;
+  display: flex;
+  align-items: center;
+  gap: 8px;
+}
+
+.modal-features li:before {
+  content: '✓';
+  color: var(--accent);
+  font-weight: bold;
+}
+
+.modal-tech {
+  margin: 24px 0;
+}
+
+.modal-tech div {
+  display: flex;
+  flex-wrap: wrap;
+  gap: 8px;
+  margin-top: 12px;
+}
+
+.modal-tech span {
+  background: var(--accent);
+  color: #000;
+  padding: 6px 12px;
+  border-radius: 20px;
+  font-size: 0.9rem;
+  font-weight: 600;
+}
+
+.modal-actions {
+  display: flex;
+  gap: 12px;
+  margin-top: 24px;
 }
 
 /* ===== Reusable section glow ===== */
